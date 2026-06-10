@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const Groq = require("groq-sdk");
@@ -9,6 +10,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(
+  express.static(
+    path.join(__dirname, "../client/build")
+  )
+);
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -123,10 +130,21 @@ app.get("/analytics/summary", (req, res) => {
   res.json(summary);
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../client/build",
+      "index.html"
+    )
+  );
 });
 
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
 
 
 
