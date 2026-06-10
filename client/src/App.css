@@ -590,3 +590,215 @@ body{
   overflow-y:auto;
   max-height:calc(100vh - 180px);
 }
+
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+@media (max-width: 1024px){
+
+  .sidebar.open{
+    width:240px;
+  }
+
+  .chat-container{
+    margin-left:240px;
+  }
+
+  .hero h2{
+    font-size:2.5rem;
+  }
+
+  .input-box{
+    width:90%;
+  }
+
+  .chat-box{
+    width:95%;
+  }
+
+  .suggestion-grid{
+    gap:18px;
+  }
+
+  .suggestion-card{
+    width:220px;
+  }
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 768px){
+
+  .sidebar{
+    position:fixed;
+    left:-280px;
+    width:280px !important;
+    transition:.3s ease;
+  }
+
+  .sidebar.open{
+    left:0;
+  }
+
+  .sidebar.closed{
+    left:-280px;
+  }
+
+  .chat-container{
+    margin-left:0 !important;
+    width:100%;
+    padding:15px;
+  }
+
+  .hero{
+    margin-bottom:30px;
+  }
+
+  .hero h2{
+    font-size:2rem;
+  }
+
+  .hero p{
+    font-size:1rem;
+  }
+
+  .chat-box{
+    width:100%;
+  }
+
+  .user-msg,
+  .bot-msg{
+    max-width:90%;
+    font-size:14px;
+  }
+
+  .input-box{
+    width:100%;
+    max-width:100%;
+    margin-top:20px;
+  }
+
+  .input-box input{
+    font-size:14px;
+  }
+
+  .input-box button{
+    width:40px;
+    height:40px;
+    font-size:16px;
+  }
+
+  .suggestion-grid{
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+  }
+
+  .suggestion-card{
+    width:100%;
+    max-width:350px;
+    height:auto;
+    min-height:120px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+@media (max-width: 480px){
+
+  .hero h2{
+    font-size:1.7rem;
+  }
+
+  .hero p{
+    font-size:.9rem;
+  }
+
+  .input-box{
+    padding:8px 10px;
+  }
+
+  .input-box input{
+    font-size:13px;
+    padding:8px;
+  }
+
+  .input-box button{
+    width:36px;
+    height:36px;
+    font-size:14px;
+  }
+
+  .suggestion-card{
+    padding:16px;
+  }
+
+  .suggestion-card h3{
+    font-size:.95rem;
+  }
+
+  .suggestion-card p{
+    font-size:.85rem;
+  }
+
+  .history-item{
+    font-size:14px;
+  }
+}
+
+/* Hide by default on desktop */
+.mobile-menu-btn{
+  display:none;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+  .mobile-menu-btn{
+    display:flex;
+    position:fixed;
+    top:15px;
+    left:15px;
+
+    width:45px;
+    height:45px;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#7c3aed;
+    color:white;
+
+    border:none;
+    border-radius:12px;
+
+    font-size:22px;
+    cursor:pointer;
+
+    z-index:2000;
+
+    box-shadow:
+      0 0 15px rgba(124,58,237,.5);
+  }
+
+  .sidebar{
+    transform:translateX(-100%);
+    width:280px !important;
+  }
+
+  .sidebar.open{
+    transform:translateX(0);
+  }
+
+  .chat-container{
+    margin-left:0 !important;
+    width:100%;
+    padding:15px;
+  }
+}

@@ -9,7 +9,7 @@ function MainPortfolio() {
 
   const [chats, setChats] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState( window.innerWidth > 768);
 
   const chatEndRef = useRef(null);
 
@@ -42,6 +42,10 @@ function MainPortfolio() {
     setChats((prev) => [newChat, ...prev]);
     setCurrentChatId(newChat.id);
     setMessages([]);
+
+    if (window.innerWidth <= 768) {
+      setSidebarOpen(false);
+    }
 
     return newChat.id;
   };
@@ -140,6 +144,7 @@ function MainPortfolio() {
   }, [messages]);
 
   return (
+
     <div className="app-layout">
       <div
         className={`sidebar ${sidebarOpen ? "open" : "closed"
@@ -155,7 +160,7 @@ function MainPortfolio() {
             ☰
           </button>
 
-          {sidebarOpen && <h3>History</h3>}
+          {/* {sidebarOpen && <h3>History</h3>} */}
         </div>
         {sidebarOpen && (
           <>
@@ -172,7 +177,11 @@ function MainPortfolio() {
                   className="history-item"
                   onClick={() => {
                     setCurrentChatId(chat.id);
-                    setMessages(chat.messages)
+                    setMessages(chat.messages);
+
+                    if (window.innerWidth <= 768) {
+                      setSidebarOpen(false);
+                    }
                   }}
                 >
                   {chat.title}
@@ -196,6 +205,13 @@ function MainPortfolio() {
       </div>
 
       <div className="chat-container">
+        {/* Mobile Menu Button */}
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        >
+          ☰
+        </button>
         <div className="hero">
           <h2>Janvi's AI</h2>
           <p>
