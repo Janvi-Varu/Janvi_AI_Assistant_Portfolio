@@ -91,7 +91,7 @@ function MainPortfolio() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/ask", {
+      const res = await fetch("/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
