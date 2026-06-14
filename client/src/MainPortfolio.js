@@ -91,7 +91,7 @@ function MainPortfolio() {
     setLoading(true);
 
     try {
-      const res = await fetch("/ask", {
+      const res = await fetch("https://janvi-ai-assistant-portfolio.onrender.com/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
