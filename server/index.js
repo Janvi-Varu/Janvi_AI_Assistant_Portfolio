@@ -130,13 +130,9 @@ app.get("/analytics/summary", (req, res) => {
   res.json(summary);
 });
 
-app.get("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(
-    path.join(
-      __dirname,
-      "../client/build",
-      "index.html"
-    )
+    path.join(__dirname, "../client/build", "index.html")
   );
 });
 
